@@ -16,10 +16,12 @@
     </nav>
     <h1>Contact</h1>
 
-    <form>
-        <action="mailto:jamaro7179@gmail.com">
-        <method="POST">
-        <enctype=text/plain>
+    <form action="mailto:jamaro7179@gmail.com" method="POST" enctype="text/plain">
+        <label><input name="name"> Name</label>
+        <label><input name="email" type="email"> Email</label>
+        <label><input name="subject"> Subject</label>
+        <label><textarea name="body"> Write your message here... </textarea></label>
+        <button>Submit</button>
     </form>
 </body>
 </html>
