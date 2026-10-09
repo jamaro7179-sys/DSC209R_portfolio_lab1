@@ -19,6 +19,16 @@ nav ul {
 
 nav a {
     display: block;
+    padding: 0.5em;
     text-decoration: none;
+    text-align: center;
+    flex: 1;
     color: #1023b1;
+}
+
+nav {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #oklch;
+    padding-bottom: 0.5em;
 }
