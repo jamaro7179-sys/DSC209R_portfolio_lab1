@@ -38,14 +38,14 @@ nav a {
 }
 
 nav a.current {
-    border-bottom-width: 0.4em;
+    border-bottom-width: 3px; /* 1px border + 2px padding, I wanted to stay in the same sizing system between the 3 navs */
     border-bottom-style: solid;
     border-bottom-color: #4b4b4b;
     padding-bottom: 0.5em;
 }
 
 nav a:hover {
-    border-bottom-width: 0.4em;
+    border-bottom-width: 3px;
     border-bottom-style: solid;
     border-bottom-color: var(--color-accent);
     padding-bottom: 0.5em;
