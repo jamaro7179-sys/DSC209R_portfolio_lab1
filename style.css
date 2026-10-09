@@ -14,16 +14,6 @@ nav {
     border-bottom-color: #4b4b4b;
 }
 
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex: 1;
-    color: #1023b1;
-}
-
 nav a {
     flex: 1;
     display: block;
@@ -38,5 +28,14 @@ nav a.current {
     border-bottom-width: 0.4em;
     border-bottom-style: solid;
     border-bottom-color: #4b4b4b;
-    padding-bottom: 0.1em;
+    padding-bottom: 0.05em;
+}
+
+nav ul, nav li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex: 1;
+    color: #1023b1;
 }
