@@ -41,12 +41,12 @@ nav a.current {
     border-bottom-width: 0.4em;
     border-bottom-style: solid;
     border-bottom-color: #4b4b4b;
-    padding-bottom: 0.1em;
+    padding-bottom: 0.5em;
 }
 
 nav a:hover {
     border-bottom-width: 0.4em;
     border-bottom-style: solid;
     border-bottom-color: var(--color-accent);
-    padding-bottom: 0.1em;
+    padding-bottom: 0.5em;
 }
