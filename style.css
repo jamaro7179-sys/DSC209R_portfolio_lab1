@@ -11,7 +11,7 @@ body {
 nav {
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: #oklch;
+    border-bottom-color: #4b4b4b;
 }
 
 
@@ -37,6 +37,6 @@ nav a {
 nav a.current {
     border-bottom-width: 0.4em;
     border-bottom-style: solid;
-    border-bottom-color: #oklch;
+    border-bottom-color: #4b4b4b;
     padding-bottom: 0.1em;
 }
