@@ -27,7 +27,7 @@ nav a {
     color: inherit;
 }
 
-nav a.current {
+nav ul li.current {
     border-bottom-width: 0.4em;
     color: #oklch;
     padding-bottom: 0.5em;
