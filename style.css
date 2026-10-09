@@ -4,8 +4,8 @@ body {
     */
 
     font: 100%/1.5 system-ui;
-    max-width: 150ch;
-    margin-inline: max(1em, (100% - 150ch) / 2);
+    max-width: 600ch;
+    margin-inline: max(1em, (100% - 600ch) / 2);
 }
 
 nav {
