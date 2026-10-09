@@ -4,9 +4,16 @@ body {
     */
 
     font: 100%/1.5 system-ui;
-    max-width: 600ch;
-    margin-inline: max(1em, (100% - 600ch) / 2);
+    max-width: 150ch;
+    margin-inline: max(1em, (100% - 150ch) / 2);
 }
+
+nav {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #oklch;
+}
+
 
 nav ul {
     list-style: none;
@@ -18,24 +25,18 @@ nav ul {
 }
 
 nav a {
+    flex: 1;
     display: block;
     padding: 0.5em;
     text-decoration: none;
     text-align: center;
-    flex: 1;
     color: #1023b1;
     color: inherit;
 }
 
-nav ul li.current {
+nav a.current {
     border-bottom-width: 0.4em;
-    color: #oklch;
-    padding-bottom: 0.5em;
-}
-
-nav {
-    border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #oklch;
+    padding-bottom: 0.1em;
 }
-
