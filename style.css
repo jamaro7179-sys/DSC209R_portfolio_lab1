@@ -14,12 +14,12 @@ nav ul {
     padding: 0;
     display: flex;
     flex: 1;
-    color: #029386;
+    color: #1023b1;
 }
 
 nav a {
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;
-    color: #029386;
+    color: #1023b1;
 }
