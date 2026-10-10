@@ -53,7 +53,7 @@ nav a:hover {
     padding-bottom: 0.5em;
 }
 
-input, tex tarea, button {
+input, textarea, button {
     font: inherit;
 }
 
