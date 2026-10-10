@@ -34,7 +34,7 @@ nav a {
     color: inherit;
     text-decoration: none;
     text-align: center; 
-    font-weight: semibold; /* semi-bold to make the nav items more visible */
+    font-weight: 600; /* semi-bold to make the nav items more visible */
     font-size: 1.1em; /* slightly larger than the default font size to make the nav items more visible */
 }
 
