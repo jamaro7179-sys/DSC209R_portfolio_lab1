@@ -73,3 +73,13 @@ label {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
 }
+
+.projects article {
+    grid-template-columns: subgrid;
+    grid-row: span 3;
+    gap: 1em;
+}
+
+.projects article h2 {
+    margin: 0; /* Trying to avoid excessive spacing, per the guide */
+}
