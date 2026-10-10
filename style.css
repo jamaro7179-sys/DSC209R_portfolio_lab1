@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 3em; /* slightly smaller than the the guide suggested, but still helps with readability */
 }
 
 h1, h2, h3, h4, h5, h6 {
