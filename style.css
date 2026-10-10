@@ -3,15 +3,6 @@ html {
     accent-color: var(--color-accent);
 }
 
-h1 {
-    font-size: 2em;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1;
-    text-wrap: balance;
-}
-
 body {
     /* Set line height to 1.5 times the font size
     and use the OS's UI font as the website font
@@ -19,6 +10,15 @@ body {
     font: 100%/1.5 system-ui;
     max-width: 600ch;
     margin-inline: max(1em, (100% - 600ch) / 2);
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
 }
 
 nav {
