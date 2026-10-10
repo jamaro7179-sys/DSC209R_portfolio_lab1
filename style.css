@@ -68,3 +68,8 @@ label {
     grid-column: 1/-1;
     gap: 1em;
 }
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+}
