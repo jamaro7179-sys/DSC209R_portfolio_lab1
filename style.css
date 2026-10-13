@@ -94,19 +94,35 @@ label {
     margin: 0; /* Trying to avoid excessive spacing, per the guide */
 }
 
-header a {
+c.resume header a {
     margin-right: 1em;
+    color: var(--color-accent);
 }
 
-section {
-    margin-top: 2em;
+.resume h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--color-accent);
+    color: var(--color-accent);
+    font-size: 1.25em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-article h3 {
+.resume article h3 {
+    margin-top: 1em;
     margin-bottom: 0;
 }
 
-article p {
+.resume article p {
     margin-top: 0;
-    color: #4b4b4b;     /* location/date line reads as secondary */
+    color: #4b4b4b;
+    font-style: italic;
 }
+
+.resume li {
+    margin-bottom: 0.25em;
+}
+
