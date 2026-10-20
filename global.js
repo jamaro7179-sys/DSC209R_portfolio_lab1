@@ -21,6 +21,7 @@ let pages = [
     { url: 'projects/', title: 'Projects' },
     { url: 'contact/', title: 'Contact' },
     { url: 'resume/', title: 'Resume' },
+    { url: 'https://github.com/jamaro7179-sys', title: 'GitHub' },
 ];
 
 let nav = document.createElement('nav');
@@ -32,8 +33,6 @@ const BASE_PATH =
     : '/DSC209R_portfolio_lab1/'; // GitHub Pages repo name
 
 
-
-
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
@@ -41,8 +40,18 @@ for (let p of pages) {
     url = !url.startsWith('http') ? BASE_PATH + url : url;
     
     // next step: create link and add it to nav
-    nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`)
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = title;
+    nav.appendChild(a);
 
+if (a.host === location.host && a.pathname === location.pathname) {
+    a.classList.add('current');
 }
 
+a.classList.toggle(
+    'current',
+    a.host === location.host && a.pathname === location.pathname,
+);
+}
 
