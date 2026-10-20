@@ -1,6 +1,7 @@
 html {
     --color-accent: #aa295a;
     accent-color: var(--color-accent);
+    color-scheme: light dark;
 }
 
 body {
@@ -8,8 +9,8 @@ body {
     and use the OS's UI font as the website font
     */
     font: 100%/1.5 system-ui;
-    max-width: 600ch;
-    margin-inline: max(1em, (100% - 600ch) / 2);
+    max-width: 150ch;
+    margin-inline: max(1em, (100% - 150ch) / 2);
 }
 
 h1 {
@@ -22,9 +23,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
+    display: flex;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: #4b4b4b; /*slightly different grey than the guide suggested, but still gets the point across */
+    --border-color: #616161; /*slightly different grey than the guide suggested, but still gets the point across */
+    border-bottom-color: var(--border-color);
 }
 
 nav ul, nav li {
@@ -119,4 +122,17 @@ c.resume header a {
 .resume article p {
     margin-top: 0;
     color: #4b4b4b;
+}
+
+.color-scheme {
+    position: absolute;
+    top; 1em;
+    right: 1em;
+    font-size: 75%;
+    font-family: inherit;
+}
+
+.color-scheme select {
+    font-size: 80%;
+    padding: 0.25em 0.5em;
 }
