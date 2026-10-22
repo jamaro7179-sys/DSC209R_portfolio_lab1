@@ -126,7 +126,7 @@ c.resume header a {
 
 .color-scheme {
     position: absolute;
-    top; 1em;
+    top: 1em;
     right: 1em;
     font-size: 75%;
     font-family: inherit;

@@ -1,0 +1,5 @@
+$$('.projects > article').map((a) => ({
+    title: $('h2', a).textContent,
+    image: $('img', a).getAttribute('src'),
+    description: $('p', a).textContent,
+  }));
