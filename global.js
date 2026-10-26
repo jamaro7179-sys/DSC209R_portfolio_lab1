@@ -99,14 +99,21 @@ export async function fetchJSON(url) {
     }
   }
 
+
+// adding a For loop to iterate through the projects seems the most effective here
 export function renderProjects(project, containerElement, headingLevel = 'h2') 
   {// Your code will go here
       containerElement.innerHTML = '';
+      
+      for (const p of project) {
       const article = document.createElement('article');
+      
+       // seems to be the best approach for this assignment, adding headingLevel
       article.innerHTML = `
-          <h3>${project.title}</h3>
-          <img src="${project.image}" alt="${project.title}">
-          <p>${project.description}</p>
+          <${headingLevel}>${p.title}</${headingLevel}> 
+          <img src="${p.image}" alt="${p.title}">
+          <p>${p.description}</p>
       `;
       containerElement.appendChild(article);
-}
+    }
+  }
