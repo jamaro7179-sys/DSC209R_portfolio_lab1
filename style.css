@@ -136,3 +136,19 @@ c.resume header a {
     font-size: 80%;
     padding: 0.25em 0.5em;
 }
+
+/* adding a section to update the profile stats css here */
+
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+#profile-stats dt {
+    grid-row-start: 1;
+  }
+  
+#profile-stats dd {
+    grid-row-start: 2;
+    margin-left: 0;
+  }

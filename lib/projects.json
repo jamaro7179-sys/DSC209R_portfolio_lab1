@@ -1,19 +1,22 @@
   [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, accusantium. Quas nobis sapiente aliquid vero id facere, eos fugit dolores repellat modi aperiam velit atque officia eveniet pariatur repellendus est?"
+      "title": "Project 1: Visualization",
+      "year": 2026,
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "A short sentence or two about what you built."
     },
     {
-        "title": "Fugiat quo aperiam fugit!",
+        "title": "Project 2: Deception",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Neque inventore pariatur sunt adipisci expedita iste ullam qui incidunt ut enim minus perspiciatis tempora omnis corrupti similique, magnam deserunt ex vero rem, quos sequi dolore! Ab velit vero aliquam."
-    },
+        "description": "A short sentence or two about what you built."
+      },
     {
-        "title": "Dolor corporis sapiente doloribus!",
+        "title": "Project 3: Still to Come...",
+        "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Molestiae aperiam possimus maxime aliquam voluptatum harum laboriosam consequatur nesciunt quod impedit suscipit rerum mollitia corrupti, praesentium sapiente quos sint ea, ipsa nihil accusantium velit sunt perspiciatis? Labore, quod veniam?"
-    },
+        "description": "A short sentence or two about what you built."
+     },
     {
         "title": "Nam iste odit id!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
