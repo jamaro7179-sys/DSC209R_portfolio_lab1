@@ -1,16 +1,16 @@
   [
     {
+      "title": "Project 2: Persuasive or Deceptive Visualization?",
+      "year": 2025,
+      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+      "description": "A short sentence or two about what you built."
+    },
+    {
       "title": "Project 1: Visualization",
       "year": 2026,
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
       "description": "A short sentence or two about what you built."
     },
-    {
-        "title": "Project 2: Deception",
-        "year": 2025,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A short sentence or two about what you built."
-      },
     {
         "title": "Project 3: Still to Come...",
         "year": 2024,
