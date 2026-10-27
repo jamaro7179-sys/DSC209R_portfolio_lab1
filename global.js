@@ -110,7 +110,7 @@ export function renderProjects(project, containerElement, headingLevel = 'h2')
       
        // seems to be the best approach for this assignment, adding headingLevel
       article.innerHTML = `
-          <${headingLevel}>${p.title}</${headingLevel}> 
+          <${headingLevel}>${p.url ? `<a href="${BASE_PATH}${p.url}">${p.title}</a>` : p.title}</${headingLevel}> 
           <img src="${p.image}" alt="${p.title}">
           <p>${p.description}</p>
       `;
