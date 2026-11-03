@@ -197,3 +197,13 @@ c.resume header a {
     gap: 1em;
     flex: 1;
 }
+
+svg:has(path:hover) {
+    path:not(:hover) {
+        opacity: 0.5;
+    }
+}
+  
+path {
+    transition: 300ms;
+}
