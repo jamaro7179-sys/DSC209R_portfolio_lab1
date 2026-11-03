@@ -205,5 +205,15 @@ svg:has(path:hover) {
 }
   
 path {
+    cursor: pointer;
+    fill: var(--color);
     transition: 300ms;
+}
+
+.selected {
+    --color: oklch(60% 45% 0) !important;
+
+    &:is(path) {
+        fill: var(--color);
+    }
 }
