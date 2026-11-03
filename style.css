@@ -152,3 +152,13 @@ c.resume header a {
     grid-row-start: 2;
     margin-left: 0;
   }
+
+.project-year span {
+    font-variant-numeric: oldstyle-nums;
+}
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+}
