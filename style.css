@@ -162,3 +162,30 @@ c.resume header a {
     margin-block: 2em;
     overflow: visible;
 }
+
+.legend {
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    padding-block: 1em;
+    padding-inline: 1em;
+    margin-block: 1em;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 0.5em;
+  }
+  
+  .legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+.swatch {
+    display: inline-block;
+    width: 1em;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color);
+    border-radius: 50%;
+}
