@@ -174,6 +174,7 @@ c.resume header a {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
     gap: 0.5em;
+    flex: 1;
   }
   
   .legend li {
@@ -188,4 +189,11 @@ c.resume header a {
     aspect-ratio: 1 / 1;
     background-color: var(--color);
     border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex: 1;
 }
