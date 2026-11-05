@@ -1,5 +1,4 @@
-// World map of CO2 emissions: countries shaded red by emissions, filterable by industry and year.
-// Needs: d3, topojson-client, and emissions-data.js (defines EMISSIONS).
+// World map of CO2 emissions by country, filterable by industry and year (D3 + topojson-client).
 
 const WORLD = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 const { years, countries: countryNames, industries, rows } = EMISSIONS;
@@ -12,21 +11,23 @@ const alias = {
   "Hong Kong Special Administrative Region, People's Republic of China": "Hong Kong",
   "Lao People's Democratic Republic": "Laos", "Brunei Darussalam": "Brunei"
 };
+// Converts a dataset country name to the map's spelling.
 const mapName = name => alias[name] || name.replace(/, Republic of$/, "");
 
-// data colors come from the CSS variables in emissions-map.css
+// Reads a color variable (--low, --high) from emissions-map.css.
 const cssVar = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 const LOW = cssVar("--low"), HIGH = cssVar("--high");
 
 const svg = d3.select("#map");
 const tip = d3.select("#tip");
+// Turns a country shape into an SVG path on the 960x500 map.
 const path = d3.geoPath(d3.geoNaturalEarth1().fitSize([960, 500], { type: "Sphere" }));
 
-// industry dropdown
+// Fills the industry dropdown.
 d3.select("#industry").selectAll("option")
   .data(["All industries", ...industries]).join("option").text(d => d);
 
-// legend (gradient bar, bottom-left)
+// Legend: gradient bar from the low color to the high color.
 const grad = svg.append("defs").append("linearGradient").attr("id", "legend-grad");
 grad.append("stop").attr("class", "low").attr("offset", "0%");
 grad.append("stop").attr("class", "high").attr("offset", "100%");
@@ -34,14 +35,18 @@ svg.append("rect").attr("class", "legend-bar").attr("x", 20).attr("y", 462).attr
 svg.append("text").attr("class", "legend-label").attr("x", 20).attr("y", 487).text("0");
 const legendMax = svg.append("text").attr("class", "legend-label").attr("x", 180).attr("y", 487).attr("text-anchor", "end");
 
+// Loads the map outlines, then draws the countries and hooks up the controls.
 d3.json(WORLD).then(world => {
   const shapes = topojson.feature(world, world.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
   const shapeNames = new Set(shapes.map(f => f.properties.name));
 
+  // Draws every country as a grey shape; update() colors the ones with data.
   const land = svg.append("g").selectAll("path").data(shapes).join("path")
     .attr("class", "land").attr("d", path);
 
   let valueByShape = new Map();   // map country name -> {name, value} for the current selection
+
+  // Hover: shows the country's name and value in a tooltip.
   land.on("mousemove", (e, d) => {
       const hit = valueByShape.get(d.properties.name);
       if (!hit) return tip.style("opacity", 0);
@@ -50,7 +55,7 @@ d3.json(WORLD).then(world => {
     })
     .on("mouseout", () => tip.style("opacity", 0));
 
-  // total emissions per country (by country index) for one industry and year index
+  // Adds up emissions per country for one industry and one year.
   function totalsFor(industry, yi) {
     const totals = new Map();
     for (const [c, i, values] of rows) {
@@ -61,6 +66,7 @@ d3.json(WORLD).then(world => {
     return totals;
   }
 
+  // Reads the dropdown and slider, then recolors the map, legend and year label.
   function update() {
     const industry = d3.select("#industry").property("value");
     const year = +d3.select("#year").property("value");
@@ -74,11 +80,11 @@ d3.json(WORLD).then(world => {
       else valueByShape.set(mapName(name), { name, value });
     }
 
-    // one scale per industry, fixed across all years, so the year slider shows change over time
+    // color scale fixed across all years (per industry) so the slider shows change over time
     const max = d3.max(years, (_, y) => d3.max(totalsFor(industry, y).values()));
     const color = d3.scaleSequentialSqrt(d3.interpolateRgb(LOW, HIGH)).domain([0, max]);
 
-    // countries with data get a color; null falls back to the CSS "no data" grey
+    // null falls back to the CSS "no data" grey
     land.transition().duration(500)
       .style("fill", d => valueByShape.has(d.properties.name) ? color(valueByShape.get(d.properties.name).value) : null);
 
@@ -86,6 +92,7 @@ d3.json(WORLD).then(world => {
     d3.select("#yv").text(year);
   }
 
+  // Updates the map when a control changes, and draws the starting view.
   d3.selectAll("#industry, #year").on("input", update);
   update();
 });
