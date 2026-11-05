@@ -6,8 +6,8 @@
   --text: #e2e8f0;
   --muted: #94a3b8;
   --low: #4a1c24;       /* lowest emissions (dim maroon) */
-  --high: #ff2d2d;      /* highest emissions (bright red) */
-  --no-data: #1e293b;   /* countries not in the dataset */
+  --high: #ff0000;      /* highest emissions (bright red) */
+  --no-data: #414141;   /* countries not in the dataset */
 }
 
 body { font-family: Calibri, Arial, sans-serif; color: var(--text); background: var(--bg); color-scheme: dark; margin: 0; padding: 24px; }

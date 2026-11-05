@@ -1,7 +1,8 @@
 // World map of CO2 emissions by country, filterable by industry and year (D3 + topojson-client).
 
 const WORLD = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
-const { years, countries: countryNames, industries, rows } = EMISSIONS;
+const FILE = "CO2_emissions.csv";
+const years = d3.range(1995, 2019);
 
 // dataset country name -> map country name (only where they differ)
 const alias = {
@@ -23,10 +24,6 @@ const tip = d3.select("#tip");
 // Turns a country shape into an SVG path on the 960x500 map.
 const path = d3.geoPath(d3.geoNaturalEarth1().fitSize([960, 500], { type: "Sphere" }));
 
-// Fills the industry dropdown.
-d3.select("#industry").selectAll("option")
-  .data(["All industries", ...industries]).join("option").text(d => d);
-
 // Legend: gradient bar from the low color to the high color.
 const grad = svg.append("defs").append("linearGradient").attr("id", "legend-grad");
 grad.append("stop").attr("class", "low").attr("offset", "0%");
@@ -35,10 +32,18 @@ svg.append("rect").attr("class", "legend-bar").attr("x", 20).attr("y", 462).attr
 svg.append("text").attr("class", "legend-label").attr("x", 20).attr("y", 487).text("0");
 const legendMax = svg.append("text").attr("class", "legend-label").attr("x", 180).attr("y", 487).attr("text-anchor", "end");
 
-// Loads the map outlines, then draws the countries and hooks up the controls.
-d3.json(WORLD).then(world => {
+// Loads the map outlines and the CSV (emissions rows only), then draws the countries and hooks up the controls.
+Promise.all([
+  d3.json(WORLD),
+  d3.csv(FILE, d => d.INDICATOR.startsWith("CO2 emissions, Metric") ? d : null)   // skip multiplier/intensity rows
+]).then(([world, rows]) => {
   const shapes = topojson.feature(world, world.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
   const shapeNames = new Set(shapes.map(f => f.properties.name));
+
+  // Fills the industry dropdown.
+  const industries = [...new Set(rows.map(d => d.INDUSTRY))].sort();
+  d3.select("#industry").selectAll("option")
+    .data(["All industries", ...industries]).join("option").text(d => d);
 
   // Draws every country as a grey shape; update() colors the ones with data.
   const land = svg.append("g").selectAll("path").data(shapes).join("path")
@@ -56,32 +61,24 @@ d3.json(WORLD).then(world => {
     .on("mouseout", () => tip.style("opacity", 0));
 
   // Adds up emissions per country for one industry and one year.
-  function totalsFor(industry, yi) {
-    const totals = new Map();
-    for (const [c, i, values] of rows) {
-      if (industry === "All industries" || industries[i] === industry) {
-        totals.set(c, (totals.get(c) || 0) + values[yi]);
-      }
-    }
-    return totals;
+  function totalsFor(industry, year) {
+    const matching = rows.filter(d => industry === "All industries" || d.INDUSTRY === industry);
+    return d3.rollup(matching, v => d3.sum(v, d => +d[year]), d => d.COUNTRY);
   }
 
   // Reads the dropdown and slider, then recolors the map, legend and year label.
   function update() {
     const industry = d3.select("#industry").property("value");
     const year = +d3.select("#year").property("value");
-    const yi = years.indexOf(year);
 
-    const totals = totalsFor(industry, yi);
     valueByShape = new Map();
-    for (const [c, value] of totals) {
-      const name = countryNames[c];
+    for (const [name, value] of totalsFor(industry, year)) {
       if (!shapeNames.has(mapName(name))) console.warn("no map shape for", name);
       else valueByShape.set(mapName(name), { name, value });
     }
 
     // color scale fixed across all years (per industry) so the slider shows change over time
-    const max = d3.max(years, (_, y) => d3.max(totalsFor(industry, y).values()));
+    const max = d3.max(years, y => d3.max(totalsFor(industry, y).values()));
     const color = d3.scaleSequentialSqrt(d3.interpolateRgb(LOW, HIGH)).domain([0, max]);
 
     // null falls back to the CSS "no data" grey

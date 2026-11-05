@@ -1,5 +1,11 @@
   [
     {
+        "title": "Project 1: Still to Come...",
+        "year": 2025,
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A short sentence or two about what you built."
+    },
+    {
       "title": "MDS Class DSC209R Project 2: Persuasive or Deceptive Visualization?",
       "year": 2026,
       "url": "projects/Project2_Content/Project2.html",
@@ -7,17 +13,11 @@
       "description": "This is Project 2 for DSC209R, where I create and analyze two visualizations to determine if they are persuasive or deceptive."
     },
     {
-      "title": "Project 1: Still to Come...",
-      "year": 2025,
-      "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-      "description": "A short sentence or two about what you built."
-    },
-    {
         "title": "MDS Class DSC209R Project 3: D3 Mapgraph of CO2 Emissions by Country",
         "year": 2026,
         "url": "projects/Project_3_d3_mapgraph/emissions-map.html",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A short sentence or two about what you built."
+        "description": "This is Project 3 for DSC209R, where my team and I created a D3 Mapgraph of CO2 Emissions by Country."
      },
     {
         "title": "Nam iste odit id!",
