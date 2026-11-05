@@ -1,6 +1,6 @@
   [
     {
-      "title": "Project 2: Persuasive or Deceptive Visualization?",
+      "title": "MDS Class DSC209R Project 2: Persuasive or Deceptive Visualization?",
       "year": 2026,
       "url": "projects/Project2_Content/Project2.html",
       "image": "https://vis-society.github.io/labs/2/images/empty.svg",
@@ -13,8 +13,9 @@
       "description": "A short sentence or two about what you built."
     },
     {
-        "title": "Project 3: Still to Come...",
-        "year": 2024,
+        "title": "MDS Class DSC209R Project 3: D3 Mapgraph of CO2 Emissions by Country",
+        "year": 2026,
+        "url": "projects/Project_3_d3_mapgraph/emissions-map.html",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "A short sentence or two about what you built."
      },
