@@ -36,7 +36,7 @@ function renderPieChart(projectsGiven) {
     arcs.forEach((arc, idx) => {
       svg.append('path')
         .attr('d', arc)
-        .attr('style', `--color: ${colors(idx)}`)
+        .attr('style', `--color: ${colors(idx)}`)        
         .on('click', () => {
           selectedIndex = selectedIndex === idx ? -1 : idx;
   

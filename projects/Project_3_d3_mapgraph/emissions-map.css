@@ -1,0 +1,29 @@
+/* Styling for emissions-map.html. Colors live here as variables; emissions-map.js reads --low / --high for the data scale. */
+:root {
+  --bg: #0f172a;        /* page */
+  --panel: #0b1220;     /* map background + country borders */
+  --border: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --low: #4a1c24;       /* lowest emissions (dim maroon) */
+  --high: #ff2d2d;      /* highest emissions (bright red) */
+  --no-data: #1e293b;   /* countries not in the dataset */
+}
+
+body { font-family: Calibri, Arial, sans-serif; color: var(--text); background: var(--bg); color-scheme: dark; margin: 0; padding: 24px; }
+.page { max-width: 1100px; margin: 0 auto; }
+h1 { margin: 0 0 4px; }
+.sub { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+.controls { display: flex; gap: 28px; align-items: center; margin-bottom: 8px; }
+select { font-size: 14px; padding: 3px; }
+
+/* map */
+svg { width: 100%; display: block; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.land { fill: var(--no-data); stroke: var(--panel); stroke-width: 0.5; }   /* D3 overrides fill for countries with data */
+.legend-bar { fill: url(#legend-grad); }
+.legend-label { fill: var(--muted); font-size: 11px; }
+#legend-grad .low { stop-color: var(--low); }
+#legend-grad .high { stop-color: var(--high); }
+
+/* tooltip */
+#tip { position: absolute; background: var(--border); color: var(--text); border: 1px solid #475569; padding: 6px 10px; font-size: 13px; pointer-events: none; opacity: 0; }
