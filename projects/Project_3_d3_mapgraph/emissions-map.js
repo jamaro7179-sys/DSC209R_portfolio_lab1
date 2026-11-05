@@ -21,8 +21,10 @@ const LOW = cssVar("--low"), HIGH = cssVar("--high");
 
 const svg = d3.select("#map");
 const tip = d3.select("#tip");
+
+
 // Turns a country shape into an SVG path on the 960x500 map.
-const path = d3.geoPath(d3.geoNaturalEarth1().fitSize([960, 500], { type: "Sphere" }));
+const path = d3.geoPath(d3.geoNaturalEarth1().fitSize([1000, 500], { type: "Sphere" }));
 
 // Legend: gradient bar from the low color to the high color.
 const grad = svg.append("defs").append("linearGradient").attr("id", "legend-grad");
@@ -56,7 +58,7 @@ Promise.all([
       const hit = valueByShape.get(d.properties.name);
       if (!hit) return tip.style("opacity", 0);
       tip.style("opacity", 1).style("left", e.pageX + 12 + "px").style("top", e.pageY - 10 + "px")
-        .html(`<b>${hit.name}</b><br>CO2 emissions: ${d3.format(",.1f")(hit.value)}`);
+        .html(`<b>${hit.name}</b><br>CO2 emissions: ${d3.format(",.1f")(hit.value)} metric tons`);
     })
     .on("mouseout", () => tip.style("opacity", 0));
 
