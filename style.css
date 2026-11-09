@@ -233,3 +233,7 @@ path {
     grid-column: 2;
 }
 
+.gridlines line{
+    stroke-opacity: 0.1;
+    
+}
