@@ -235,5 +235,38 @@ path {
 
 .gridlines line{
     stroke-opacity: 0.1;
-    
 }
+
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+  
+circle:hover {
+    transform: scale(1.5);
+}
+
+.tooltip {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+.tooltip dt {
+    font-weight: bold;
+}
+
+dl.info {
+    transition-duration: 500ms;
+    transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+}
+
