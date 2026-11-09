@@ -248,6 +248,9 @@ circle:hover {
 }
 
 .tooltip {
+    position: fixed;
+    top: 1em;
+    left: 1em;
     background-color: white;
     color: black;
     padding: 1em;
@@ -263,6 +266,10 @@ circle:hover {
 dl.info {
     transition-duration: 500ms;
     transition-property: opacity, visibility;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25em 1em;
+    margin: 0;
 }
 
 dl.info[hidden]:not(:hover, :focus-within) {
