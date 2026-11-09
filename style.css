@@ -264,7 +264,7 @@ circle:hover {
 }
 
 dl.info {
-    transition-duration: 500ms;
+    transition-duration: 1s; /*longer transition time to make the tooltip more visible*/
     transition-property: opacity, visibility;
     display: grid;
     grid-template-columns: auto 1fr;
