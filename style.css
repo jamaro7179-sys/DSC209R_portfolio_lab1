@@ -217,3 +217,19 @@ path {
         fill: var(--color);
     }
 }
+
+
+.stats dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+.stats dt {
+    grid-column: 1;
+}
+
+.stats dd {
+    grid-column: 2;
+}
+

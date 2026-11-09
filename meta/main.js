@@ -50,6 +50,53 @@ function processCommits(data) {
     });
 }
 
+function renderCommitInfo(data, commits) {
+    // Create dl
+    const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+
+    // Add total LOC
+    dl.append('dt').html('Total Lines of Code:');
+    dl.append('dd').text(data.length);
+
+    // Add total commits
+    dl.append('dt').html('Total commits:');
+    dl.append('dd').text(commits.length);
+
+    // Add total authors
+    dl.append('dt').text('Total authors:');
+    dl.append('dd').text(new Set(commits.map(d => d.author)).size);
+
+    // Add total files affected
+    dl.append('dt').text('Total files affected:');
+    dl.append('dd').text(new Set(commits.map(d => d.filesAffected)).size);
+
+    const workByPeriod = d3.rollups(
+        data,
+        (v) => v.length,
+        (d) => new Date(d.datetime).toLocaleString('en', { dayPeriod: 'long' }),
+      );
+    
+    const maxPeriod = d3.greatest(workByPeriod, (d) => d[1])?.[0];
+
+    // Most productive time of the day
+    dl.append('dt').text('Most productive time of the day:');
+    dl.append('dd').text(maxPeriod);
+    
+    const workByDay = d3.rollups(
+        data,
+        (v) => v.length,
+        (d) => new Date(d.datetime).toLocaleString('en', { weekday: 'long' }),
+      );
+    
+    const mostProductiveDayOfWeek = d3.greatest(workByDay, (d) => d[1])?.[0];
+
+    // Time of day work is done
+    dl.append('dt').text('Most productive day of the week:');
+    dl.append('dd').text(mostProductiveDayOfWeek);
+
+}
+
 let data = await loadData();
 let commits = processCommits(data);
-console.log(commits);
+renderCommitInfo(data, commits);
+
