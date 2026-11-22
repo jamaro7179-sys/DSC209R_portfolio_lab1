@@ -3,6 +3,7 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 let xScale;
 let yScale;
 
+
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
         ...row,
@@ -122,11 +123,11 @@ function renderCommitInfo(data, commits) {
 }
 
 function renderTooltipContent(commit) {
-    const link = document.getElementById('commit-link');
-    const author = document.getElementById('author-name');
-    const date = document.getElementById('commit-date');
-    const time = document.getElementById('commit-time');
-    const lines = document.getElementById('commit-lines');
+    const link = document.getElementById('tooltip-link');
+    const author = document.getElementById('tooltip-author');
+    const date = document.getElementById('tooltip-date');
+    const time = document.getElementById('tooltip-time');
+    const lines = document.getElementById('tooltip-lines');
 
     if (Object.keys(commit).length === 0) return;
 
@@ -292,3 +293,33 @@ let data = await loadData();
 let commits = processCommits(data);
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
+
+let commitProgress = 100;
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
+
+const slider = document.getElementById('commit-progress');
+const timeDisplay = document.getElementById('commit-time');
+
+// Will get updated as user changes slider
+let filteredCommits = commits;
+
+function onTimeSliderChange() {
+  commitProgress = Number(slider.value);
+  commitMaxTime = timeScale.invert(commitProgress);
+  timeDisplay.textContent = commitMaxTime.toLocaleString('en', {
+    dateStyle: 'long',
+    timeStyle: 'short',
+  });
+  filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  renderScatterPlot(data, filteredCommits);
+}
+
+slider.addEventListener('input', onTimeSliderChange);
+onTimeSliderChange(); // run once so the time shows on page load

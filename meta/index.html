@@ -14,20 +14,28 @@
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
-        <dd><a href="" id="commit-link" target="_blank"></a></dd>
+        <dd><a href="" id="tooltip-link" target="_blank"></a></dd>
         <dt>Author</dt>
-        <dd id="author-name"></dd>
+        <dd id="tooltip-author"></dd>
         <dt>Date</dt>
-        <dd id="commit-date"></dd>
+        <dd id="tooltip-date"></dd>
         <dt>Time</dt>
-        <dd id="commit-time"></dd>
+        <dd id="tooltip-time"></dd>
         <dt>Lines</dt>
-        <dd id="commit-lines"></dd>
+        <dd id="tooltip-lines"></dd>
     </dl>
 
     
     <p id="selection-count">No commits selected</p>
     <dl id="language-breakdown" class="stats"></dl>
+
+    <div>
+        <label>
+          Show commits until:
+          <input type="range" id="commit-progress" min="0" max="100" value="100">
+          <time id="commit-time"></time>
+        </label>
+      </div>
 
 </body>
 
