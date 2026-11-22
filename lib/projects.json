@@ -20,10 +20,11 @@
         "description": "This is Project 3 for DSC209R, where my team and I created a D3 Mapgraph of CO2 Emissions by Country."
      },
     {
-        "title": "Nam iste odit id!",
-        "year": 2024,
+        "title": "MDS Class DSC209R:🚴🏼‍♀️ Wheelie Watching",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Saepe dicta reiciendis illum voluptas, obcaecati aliquam, incidunt illo nihil sit iusto commodi eius ullam doloribus ratione dolorem ad voluptatum asperiores. Debitis dicta iusto fugiat maiores mollitia, cumque consequuntur reiciendis."
+        "url": "projects/Wheelie_Watching/wheelie_watching.html",
+        "description": "This is a project for DSC209R, where I created a visualization of bicycle traffic through Boston, MA."
     },
     {
         "title": "Quas reiciendis ratione autem.",
