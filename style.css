@@ -349,7 +349,53 @@ circle.selected {
     display: flex;
     width: 0.5em;
     aspect-ratio: 1;
-    background: steelblue;
+    background: var(--color);
     border-radius: 50%;
   }
 
+#scrolly-1 {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+
+    > * {
+        flex: 1;
+    }
+}
+
+#scatter-story {
+    position: relative;
+}
+
+#scatter-plot {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    height: 50vh;
+}
+
+#scatter-story .step {
+    padding-bottom: 40vh;
+}
+
+#chart svg .tick text {
+    font-size: 18px;
+}
+
+#language-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+    gap: 1em;
+}
+
+#language-breakdown dt {
+    grid-row-start: 1;
+    grid-column-start: auto;
+}
+
+#language-breakdown dd {
+    grid-row-start: 2;
+    grid-column-start: auto;
+    margin-left: 0;
+}
